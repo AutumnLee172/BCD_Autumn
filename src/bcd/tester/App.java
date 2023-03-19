@@ -23,6 +23,7 @@ public class App {
 		// tranxLst.generateMerkleRoot();
 		String previousHash = bc.get().getLast().getBlockHeader().getHash();
 		Block b1 = new Block(previousHash);
-
+		b1.setTranxLst(tranxLst);
+		bc.nextBlock(b1);
 	}
 }

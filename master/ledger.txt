@@ -2,9 +2,25 @@
   {
     "blockHeader": {
       "id": 0,
-      "hash": "7a0bfb98b60354f303e79f81c92e2876b78c20011b79f7df2ae7375d447d1b45",
+      "hash": "a9d4fe0c0ade5335ccb2278ebcd5316e3cb37ef48aa53a7da2020dc908c64897",
       "previousHash": "0",
-      "timestamp": 1679251321336
+      "timestamp": 1679252949553
+    }
+  },
+  {
+    "blockHeader": {
+      "id": 0,
+      "hash": "30f038680d324972bceca9f30a37231ff706df6aa7e018194f76d01b3190bdb8",
+      "previousHash": "a9d4fe0c0ade5335ccb2278ebcd5316e3cb37ef48aa53a7da2020dc908c64897",
+      "timestamp": 1679252949665
+    },
+    "trxLst": {
+      "maxSize": 15,
+      "merkleRoot": "a3258ed1c8c061611e89c74c0de3835ef46f05cb87111b7e00ce1fcfd2cc4006",
+      "dataLst": [
+        "bob|alice|debit|100",
+        "mick|alice|debit|200"
+      ]
     }
   }
 ]

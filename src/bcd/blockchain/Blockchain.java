@@ -48,7 +48,8 @@ public class Blockchain {
 		public void nextBlock(Block nextBlock) throws IOException {
 			DB = get();
 			DB.add(nextBlock);
-			persist();
+			this.persist();
+			this.distribute();
 		}
 
 		/** * get() 
