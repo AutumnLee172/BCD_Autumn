@@ -1,0 +1,10 @@
+[
+  {
+    "blockHeader": {
+      "id": 0,
+      "hash": "7a0bfb98b60354f303e79f81c92e2876b78c20011b79f7df2ae7375d447d1b45",
+      "previousHash": "0",
+      "timestamp": 1679251321336
+    }
+  }
+]
