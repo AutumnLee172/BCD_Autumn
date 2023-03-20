@@ -84,7 +84,7 @@ public class Block implements Serializable {
     
     @Override
     public String toString() {
-        return "Block [Header=" + blockHeader + ", Transactions=" + trxLst + "]";
+        return "Block [Header=" + blockHeader + ", Transactions=" + trxLst.toString() + "]";
     }
 	
 	

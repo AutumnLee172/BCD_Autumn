@@ -18,7 +18,8 @@ public class Dashboard {
 
 	JFrame frame;
 	JPanel MainPanel;
-	
+	private JPanel pnlDashboard = new PnlDashboard();
+	private JPanel AddBlock = new AddBlock();
 	/**
 	 * Launch the application.
 	 */
@@ -44,10 +45,10 @@ public class Dashboard {
 	}
 	
 	public void switchPanel(JPanel Panel) {
-		MainPanel.removeAll();
-		MainPanel.add(Panel, BorderLayout.CENTER);
-		MainPanel.revalidate();
-		MainPanel.repaint();
+		pnlDashboard.setVisible(false);
+		AddBlock.setVisible(false);
+		
+		Panel.setVisible(true);
 	}
 
 	/**
@@ -56,17 +57,27 @@ public class Dashboard {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.WHITE);
-		frame.setBounds(100, 100, 675, 463);
+		frame.setBounds(100, 100, 746, 532);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		MainPanel = new PnlDashboard();
-		MainPanel.setBackground(Color.WHITE);
-		MainPanel.setBounds(121, 0, 538, 424);
-		frame.getContentPane().add(MainPanel);
-		MainPanel.setLayout(null);
+		pnlDashboard.setBackground(Color.WHITE);
+		pnlDashboard.setBounds(121, 0, 592, 477);
+		frame.getContentPane().add(pnlDashboard);
+		pnlDashboard.setLayout(null);
+		
+		AddBlock.setBackground(Color.WHITE);
+		AddBlock.setBounds(121, 0, 592, 477);
+		frame.getContentPane().add(AddBlock);
+		AddBlock.setLayout(null);
+		AddBlock.setVisible(false);
 		
 		JButton btnDashboard = new JButton("Dashboard");
+		btnDashboard.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				switchPanel(pnlDashboard);
+			}
+		});
 		btnDashboard.setForeground(Color.WHITE);
 		btnDashboard.setBackground(new Color(102, 51, 255));
 		btnDashboard.setFont(new Font("SansSerif", Font.PLAIN, 11));
@@ -77,8 +88,7 @@ public class Dashboard {
 		JButton btnNewBlock = new JButton("New Block");
 		btnNewBlock.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JPanel ab = new AddBlock();
-				switchPanel(ab);
+				switchPanel(AddBlock);
 			}
 		});
 		btnNewBlock.setForeground(Color.WHITE);

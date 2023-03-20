@@ -9,7 +9,7 @@ import bcd.blockchain.Blockchain;
 import bcd.blockchain.Transaction;
 
 public class App {
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 
 		Blockchain bc = new Blockchain();
 		bc.genesis();
