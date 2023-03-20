@@ -2,21 +2,21 @@
   {
     "blockHeader": {
       "id": 0,
-      "hash": "a9d4fe0c0ade5335ccb2278ebcd5316e3cb37ef48aa53a7da2020dc908c64897",
+      "hash": "1f25763ad41e1eeb3aacdd7c7d1a175b8ff86b2828ae5c588a730ed39effe2f9",
       "previousHash": "0",
-      "timestamp": 1679252949553
+      "timestamp": 1679296746018
     }
   },
   {
     "blockHeader": {
       "id": 0,
-      "hash": "30f038680d324972bceca9f30a37231ff706df6aa7e018194f76d01b3190bdb8",
-      "previousHash": "a9d4fe0c0ade5335ccb2278ebcd5316e3cb37ef48aa53a7da2020dc908c64897",
-      "timestamp": 1679252949665
+      "hash": "e0d225407e2b08384d4d37949100a393fb5fd957ef9ee88ad4f01f6222386542",
+      "previousHash": "1f25763ad41e1eeb3aacdd7c7d1a175b8ff86b2828ae5c588a730ed39effe2f9",
+      "timestamp": 1679296746120
     },
     "trxLst": {
       "maxSize": 15,
-      "merkleRoot": "a3258ed1c8c061611e89c74c0de3835ef46f05cb87111b7e00ce1fcfd2cc4006",
+      "merkleRoot": "d40624d8cd61dc64838706720b91dcadf8145e5931618808303ff4c3c5e2c8d4",
       "dataLst": [
         "bob|alice|debit|100",
         "mick|alice|debit|200"
