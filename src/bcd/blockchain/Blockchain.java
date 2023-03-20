@@ -95,7 +95,6 @@ public class Blockchain {
 		public void createFile(String filePath) throws IOException {
 			 File file = new File(filePath);
 			    if(!file.exists()) {
-			        System.out.println("> Blockchain binary not exist!");
 			        new File(MasterFolder).mkdir();
 			        file.createNewFile(); 
 			    }
