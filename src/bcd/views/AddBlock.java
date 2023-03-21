@@ -231,6 +231,8 @@ public class AddBlock extends JPanel {
 		panel.add(txtStatus);
 
 		JButton btnCreate = new JButton("Create");
+		btnCreate.setForeground(Color.WHITE);
+		btnCreate.setBackground(new Color(40, 167, 69));
 		btnCreate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -242,6 +244,7 @@ public class AddBlock extends JPanel {
 			}
 		});
 		btnCreate.setBounds(446, 401, 89, 23);
+		btnCreate.setBorderPainted(false);
 		panel.add(btnCreate);
 
 		JLabel lblSupplyChainData = new JLabel("Supply Chain Data");

@@ -53,7 +53,11 @@ public class Transaction implements Serializable {
 		if (verified) {
 			String asymmEncrypt = asymm.encrypt(String.join(", ", dataLst),
 					KeyAccess.getPublicKey(KeyGenerator.PUBLIC_FILE));
-			dataLst = new ArrayList<String>(Arrays.asList(String.join("|", asymmEncrypt, signed).split(","))); 
+			dataLst = new ArrayList<String>(Arrays.asList(String.join(":", asymmEncrypt, signed).split(","))); 
 		}
+	}
+	
+	public List<String> getTranxLst(){
+		return dataLst;
 	}
 }

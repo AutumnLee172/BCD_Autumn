@@ -31,7 +31,7 @@ import bcd.hashing.Hasher;
 
 public class Login {
 
-	private JFrame frame;
+	JFrame frame;
 	private JPasswordField txtPassword;
 	private JTextField txtUsername;
 	private JPasswordField txtCPassword;
@@ -248,9 +248,15 @@ public class Login {
 				boolean IsAuthenticated = authenticate();
 				if (IsAuthenticated) {
 					lblResult_Login.setText("Successfully Logged In.");
-					Dashboard dh = new Dashboard();
-					dh.frame.setVisible(true);
-					frame.dispose();
+					Dashboard dh;
+					try {
+						dh = new Dashboard();
+						dh.frame.setVisible(true);
+						frame.dispose();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}					
 				} else {
 					lblResult_Login.setText("Incorrect credentials. ");
 				}

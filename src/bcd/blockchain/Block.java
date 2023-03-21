@@ -1,6 +1,7 @@
 package bcd.blockchain;
 
 import java.io.Serializable;
+import java.util.Base64;
 
 import bcd.hashing.Hasher;
 
@@ -19,9 +20,11 @@ public class Block implements Serializable {
         this.blockHeader = new Header();
         this.blockHeader.setPreviousHash(previousHash);
         this.blockHeader.setTimestamp(System.currentTimeMillis());
+        byte[] salt = Hasher.generateSalt(256);
         String newHash = Hasher.sha256( 
                 String.join("+", Integer.toString(this.blockHeader.getID()), this.blockHeader.getPreviousHash(), Long.toString(this.blockHeader.getTimestamp())), 
-                Hasher.generateSalt(256) );
+                salt );
+        this.blockHeader.setSalt(Base64.getEncoder().encodeToString(salt));
         this.blockHeader.setHash(newHash);
     }
 
@@ -32,12 +35,12 @@ public class Block implements Serializable {
 		private static final long serialVersionUID = 1L;
 		// data member
 		public int id;
-		public String hash, previousHash;
+		public String hash, previousHash, salt;
 		public long timestamp;
 
 		@Override
 		public String toString() {
-			return "Header [id=" + id + ", currentHash=" + hash + ", previousHash=" + previousHash + ", timestamp="
+			return "Header [id=" + id  + ", salt=" + salt + ", currentHash=" + hash + ", previousHash=" + previousHash + ", timestamp="
 					+ timestamp + "]";
 		}
 
@@ -73,6 +76,14 @@ public class Block implements Serializable {
 		public void setTimestamp(long timestamp) {
 			this.timestamp = timestamp;
 		}
+		
+		public void setSalt(String salt) {
+			this.salt = salt;
+		}
+		
+		public String getSalt() {
+			return salt;
+		}
 
 	}
 	
@@ -80,6 +91,10 @@ public class Block implements Serializable {
     public Transaction trxLst;
     public void setTranxLst(Transaction trxLst) {
         this.trxLst = trxLst;
+    }
+    
+    public Transaction getTransaction() {
+    	return trxLst;
     }
     
     @Override

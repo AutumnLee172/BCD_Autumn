@@ -64,7 +64,7 @@ public class Blockchain {
 	 * 
 	 * @throws IOException
 	 */
-	public LinkedList<Block> get() throws IOException {
+	public static LinkedList<Block> get() throws IOException {
 		createFile(MasterFile);
 		try (FileInputStream fi = new FileInputStream(MasterFile); ObjectInputStream in = new ObjectInputStream(fi);) {
 			return (LinkedList<Block>) in.readObject();
@@ -72,6 +72,21 @@ public class Blockchain {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	
+	public static LinkedList<Block> search(int id) throws IOException {
+		LinkedList<Block> temp = get();
+		LinkedList<Block> searchBlocks = new LinkedList<>();
+		
+		  for (int i = 1 ; i < temp.size(); i ++) {
+			  if(temp.get(i).blockHeader.getID() == id) {
+				  searchBlocks.add(temp.get(i));
+				  searchBlocks.add(temp.get(i+1));
+				  searchBlocks.add(temp.get(i+2));
+			  }
+		  }
+		
+		return searchBlocks;
 	}
 
 	/**
@@ -107,7 +122,7 @@ public class Blockchain {
 		}
 	}
 
-	public void createFile(String filePath) throws IOException {
+	public static void createFile(String filePath) throws IOException {
 		File file = new File(filePath);
 		if (!file.exists()) {
 			new File(MasterFolder).mkdir();
