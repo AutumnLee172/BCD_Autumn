@@ -73,19 +73,31 @@ public class Blockchain {
 			return null;
 		}
 	}
-	
+
 	public static LinkedList<Block> search(int id) throws IOException {
-		LinkedList<Block> temp = get();
+
+		// get() function should not be used as it creates a file, it will cause bug if
+		// user tries to search for a block instead
+		// of creating first
+
+		LinkedList<Block> temp = null;
+
+		try (FileInputStream fi = new FileInputStream(MasterFile); ObjectInputStream in = new ObjectInputStream(fi);) {
+			temp = (LinkedList<Block>) in.readObject();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		LinkedList<Block> searchBlocks = new LinkedList<>();
-		
-		  for (int i = 1 ; i < temp.size(); i ++) {
-			  if(temp.get(i).blockHeader.getID() == id) {
-				  searchBlocks.add(temp.get(i));
-				  searchBlocks.add(temp.get(i+1));
-				  searchBlocks.add(temp.get(i+2));
-			  }
-		  }
-		
+
+		for (int i = 1; i < temp.size(); i++) {
+			if (temp.get(i).blockHeader.getID() == id) {
+				searchBlocks.add(temp.get(i));
+				searchBlocks.add(temp.get(i + 1));
+				searchBlocks.add(temp.get(i + 2));
+			}
+		}
+
 		return searchBlocks;
 	}
 
