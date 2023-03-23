@@ -67,7 +67,7 @@ public class AddBlock extends JPanel {
 			tranxLst2.add(trx2);
 			tranxLst2.SignandEncrypt();
 			String previousHash2 = bc.get().getLast().getBlockHeader().getHash();
-			Block b2 = new Block(previousHash);
+			Block b2 = new Block(previousHash2);
 			b2.setTranxLst(tranxLst2);
 			bc.nextBlock(b2);
 
@@ -78,7 +78,7 @@ public class AddBlock extends JPanel {
 			tranxLst3.add(trx3);
 			tranxLst3.SignandEncrypt();
 			String previousHash3 = bc.get().getLast().getBlockHeader().getHash();
-			Block b3 = new Block(previousHash);
+			Block b3 = new Block(previousHash3);
 			b3.setTranxLst(tranxLst3);
 			bc.nextBlock(b3);
 			
